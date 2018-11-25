@@ -5,7 +5,7 @@
 
  Make sure you use real IDs from your HA entities.
 */
-var CONFIG= {
+var CONFIG = {
     customTheme: null, // CUSTOM_THEMES.TRANSPARENT, CUSTOM_THEMES.MATERIAL, CUSTOM_THEMES.MOBILE, CUSTOM_THEMES.COMPACT, CUSTOM_THEMES.HOMEKIT, CUSTOM_THEMES.WINPHONE, CUSTOM_THEMES.WIN95
     transition: TRANSITIONS.ANIMATED_GPU, //ANIMATED or SIMPLE (better perfomance)
     entitySize: ENTITY_SIZES.NORMAL, //SMALL, BIG are available

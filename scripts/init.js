@@ -2,8 +2,8 @@ window.App = angular.module('App', ['pr.longpress', 'ngRoute']);
 window.domainPath = `${DOMAIN_PATH}/`;
 
 window.ROUTER = {
-    MAIN: domainPath,
-    CAMERAS: `${domainPath}cameras`
+    MAIN: '/',
+    CAMERAS: '/cameras'
 };
 
 App.config(function($sceProvider) {
@@ -12,7 +12,6 @@ App.config(function($sceProvider) {
 
 App.config(function($locationProvider) {
    $locationProvider.html5Mode({
-      enabled: true,
       requireBase: false
    });
 });
