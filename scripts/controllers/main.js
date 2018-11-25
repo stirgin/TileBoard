@@ -1,8 +1,8 @@
-App.controller('Main', ['$scope', '$location', MainController]);
+App.controller('Main', ['$scope', '$location', TileBoardMainController]);
 
-function MainController ($scope, $location) {
+function TileBoardMainController ($scope, $location) {
    if(!window.CONFIG) return;
-
+console.log(1);
    $scope.pages = CONFIG.pages;
    $scope.TYPES = TYPES;
    $scope.FEATURES = FEATURES;
@@ -1393,7 +1393,6 @@ function MainController ($scope, $location) {
       var translate = index * 100;
 
       var $pages = document.getElementById("pages");
-
       var transform;
 
       if(CONFIG.transition === TRANSITIONS.ANIMATED_GPU) {
@@ -1403,14 +1402,16 @@ function MainController ($scope, $location) {
          transform = 'translate(0, -' + translate + '%)';
       }
 
-      $pages.style.transform = transform;
+      if ($pages) {
+          $pages.style.transform = transform;
 
-      if(preventAnimation) {
-         $pages.style.transition = 'none';
+          if(preventAnimation) {
+              $pages.style.transition = 'none';
 
-         setTimeout(function () {
-            $pages.style.transition = null;
-         }, 50);
+              setTimeout(function () {
+                  $pages.style.transition = null;
+              }, 50);
+          }
       }
    }
 

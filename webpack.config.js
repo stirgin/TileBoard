@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const boot = [
     //vendors
     './scripts/vendors/angular.min.js',
+    './scripts/vendors/angular-route.min.js',
     './scripts/vendors/angular-long-press.js',
 
     //models
@@ -25,12 +26,14 @@ module.exports = {
         bootpatch: [
             './scripts/init.js',
             './scripts/directives.js',
+            './scripts/controllers/main-tile-board.js',
             './scripts/controllers/main.js',
             './scripts/controllers/noty.js',
-            './scripts/controllers/screensaver.js'
+            './scripts/controllers/screensaver.js',
+            './scripts/controllers/cameras.js',
         ],
         styles: [
-            './styles/bundle.less'
+            './styles/bundle.less',
         ]
     },
 
@@ -87,18 +90,23 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: 'config.js',
-                toType: 'file'
-            },{
                 from: 'favicon.png',
                 toType: 'file'
             }, {
+                from: 'configs',
+                to: 'configs',
+                toType: 'dir'
+            },{
                 from: './node_modules/@mdi/font/css/materialdesignicons.min.css',
                 to: 'styles/plugins',
                 toType: 'dir'
             }, {
                 from: './node_modules/@mdi/font/fonts',
                 to: 'styles/fonts',
+                toType: 'dir'
+            }, {
+                from: './templates',
+                to: 'templates',
                 toType: 'dir'
             }
         ])
