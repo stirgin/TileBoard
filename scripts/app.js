@@ -54,7 +54,8 @@ window.TYPES = {
    CUSTOM: 'custom',
    ALARM: 'alarm',
    WEATHER_LIST: 'weather_list',
-   VACUUM: 'vacuum'
+   VACUUM: 'vacuum',
+   ROUTER: 'router',
 };
 
 window.HEADER_ITEMS = {

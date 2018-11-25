@@ -2,3 +2,36 @@
 
 [ng-cloak] { display: none; }
 
+.nodisplay {
+    display: none;
+}
+
+a.router-link {
+    color: white;
+    &:active,
+    &:focus,
+    &:visited,
+    &:hover {
+        color: white;
+    }
+}
+
+#back-to-main-title {
+    position: fixed;
+    top: 30px;
+    left: 45px;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 9999;
+    a {
+        color: white;
+        &:active,
+        &:focus,
+        &:visited,
+        &:hover {
+            color: white;
+        }
+    }
+}
+

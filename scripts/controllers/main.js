@@ -1,8 +1,14 @@
-App.controller('Main', ['$scope', '$location', TileBoardMainController]);
+App.controller('TileBoardMainController', ['$scope', '$location', 'initialData', TileBoardMainController]);
 
-function TileBoardMainController ($scope, $location) {
-   if(!window.CONFIG) return;
-console.log(1);
+function TileBoardMainController ($scope, $location, initialData) {
+   if(!window[initialData.configName]) return;
+
+   console.log(initialData.configName);
+
+   window.CONFIG = window[initialData.configName];
+
+   $scope.router = ROUTER;
+
    $scope.pages = CONFIG.pages;
    $scope.TYPES = TYPES;
    $scope.FEATURES = FEATURES;

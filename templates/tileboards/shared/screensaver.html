@@ -1,0 +1,37 @@
+<div class="screensaver" ng-click="hideScreensaver()"
+     ng-show="isShowed" ng-controller="Screensaver" ng-style="conf.styles">
+
+    <div class="screensaver-slides" ng-if="isShowed">
+        <div class="screensaver-slide" ng-style="getSlideStyle(slide)"
+             ng-class="getSlideClasses($index, slide)"
+             ng-repeat="slide in slides track by $index">
+            <div class="screensaver-content--right-bottom" ng-if="slide.rightBottom">
+                <div header-item ng-repeat="item in slide.rightBottom track by $index"></div>
+            </div>
+            <div class="screensaver-content--right-top" ng-if="slide.rightTop">
+                <div header-item ng-repeat="item in slide.rightTop track by $index"></div>
+            </div>
+            <div class="screensaver-content--left-bottom" ng-if="slide.leftBottom">
+                <div header-item ng-repeat="item in slide.leftBottom track by $index"></div>
+            </div>
+            <div class="screensaver-content--left-top" ng-if="slide.leftTop">
+                <div header-item ng-repeat="item in slide.leftTop track by $index"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="screensaver-content" ng-if="isShowed">
+        <div class="screensaver-content--right-bottom" ng-if="conf.rightBottom">
+            <div header-item ng-repeat="item in conf.rightBottom track by $index"></div>
+        </div>
+        <div class="screensaver-content--right-top" ng-if="conf.rightTop">
+            <div header-item ng-repeat="item in conf.rightTop track by $index"></div>
+        </div>
+        <div class="screensaver-content--left-bottom" ng-if="conf.leftBottom">
+            <div header-item ng-repeat="item in conf.leftBottom track by $index"></div>
+        </div>
+        <div class="screensaver-content--left-top" ng-if="conf.leftTop">
+            <div header-item ng-repeat="item in conf.leftTop track by $index"></div>
+        </div>
+    </div>
+</div>

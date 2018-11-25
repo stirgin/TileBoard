@@ -43,11 +43,12 @@ module.exports = {
 	},
 	
 	module: {
-        rules: [ {
+        rules: [{
+            test: /\.html$/,
+            use: ['raw-loader']
+        }, {
             test: /\.js$/,
-            include: [
-                /scripts/
-            ],
+            include:  path.resolve(__dirname, 'scripts'),
             use: {
                 loader: "babel-loader"
             }
@@ -96,7 +97,11 @@ module.exports = {
                 from: 'configs',
                 to: 'configs',
                 toType: 'dir'
-            },{
+            }, {
+                from: 'images',
+                to: 'images',
+                toType: 'dir'
+            }, {
                 from: './node_modules/@mdi/font/css/materialdesignicons.min.css',
                 to: 'styles/plugins',
                 toType: 'dir'

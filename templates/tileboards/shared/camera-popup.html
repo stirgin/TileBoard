@@ -1,0 +1,32 @@
+<div class="camera-popup"
+     ng-if="activeCamera && (entity = getItemEntity(activeCamera))">
+
+    <div class="camera-popup-container">
+        <div class="camera-popup--list">
+            <div class="camera-popup--list-item"
+                 ng-click="openCamera(item)"
+                 ng-class="{'-active': activeCamera === item}"
+                 ng-repeat="item in getCameraList() track by $index">
+                <span ng-show="entity = getItemEntity(item)">
+                    <span ng-bind="entityTitle(item, entity)"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="camera-popup--camera">
+            <div ng-if="activeCamera.fullscreen.type === TYPES.CAMERA">
+                <camera item="activeCamera.fullscreen" entity="entity"
+                        freezed="false"></camera>
+            </div>
+
+            <div ng-if="activeCamera.fullscreen.type === TYPES.CAMERA_THUMBNAIL">
+                <camera-thumbnail item="activeCamera.fullscreen" entity="entity"
+                                  freezed="false"></camera-thumbnail>
+            </div>
+        </div>
+
+        <div class="camera-popup--close" ng-click="closeCamera()">
+            <i class="mdi mdi-close"></i>
+        </div>
+    </div>
+</div>

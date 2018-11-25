@@ -1,4 +1,10 @@
 window.App = angular.module('App', ['pr.longpress', 'ngRoute']);
+window.domainPath = `${DOMAIN_PATH}/`;
+
+window.ROUTER = {
+    MAIN: domainPath,
+    CAMERAS: `${domainPath}cameras`
+};
 
 App.config(function($sceProvider) {
    $sceProvider.enabled(false);
@@ -12,31 +18,29 @@ App.config(function($locationProvider) {
 });
 
 App.config(['$routeProvider', function($routeProvider) {
-    const domainPath = `${DOMAIN_PATH}/`;
-
-    const ROUTER = {
-        MAIN: domainPath,
-        CAMERAS: `${domainPath}cameras`
-    };
 
     $routeProvider
         .when(ROUTER.MAIN, {
-            template: `
-                <p>Mains</p>
-                <ul>
-                   <li><a ng-href="${ROUTER.CAMERAS}">Cameras</a></li>
-                </ul>
-            `,
-            controller: 'MainController'
+            template: require('../templates/tileboards/main/index.html'),
+            controller: 'TileBoardMainController',
+            resolve: {
+                initialData: function() {
+                    return {
+                        configName: 'MAIN'
+                    };
+                }
+            }
         })
         .when(ROUTER.CAMERAS, {
-            template: `
-                <p>Camears</p>
-                <ul>
-                   <li><a ng-href="${ROUTER.MAIN}">Back</a></li>
-                </ul>
-            `,
-            controller: 'MainController'
+            template: require('../templates/tileboards/cameras/index.html'),
+            controller: 'TileBoardMainController',
+            resolve: {
+                initialData: function() {
+                    return {
+                        configName: 'CAMERAS'
+                    };
+                }
+            }
         }).otherwise({
             redirectTo: ROUTER.CAMERAS
         });

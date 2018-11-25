@@ -1,3 +1,4 @@
-App.controller('CamerasController', function CamerasController() {
-    console.log('CamerasController');
+App.controller('CamerasController', function CamerasController($scope) {
+    console.log('CamerasController: ', ROUTER.MAIN);
+    $scope.mainRoute = ROUTER.MAIN;
 });
