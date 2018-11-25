@@ -1,6 +1,5 @@
 (function () {
-    'use strict';
-    angular
+    window.angular
         .module('pr.longpress', [])
         .directive('onLongPress', ['$parse', '$timeout', function ($parse, $timeout) {
             return {

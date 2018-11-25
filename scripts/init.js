@@ -1,4 +1,4 @@
-var App = angular.module('App', ['pr.longpress']);
+window.App = angular.module('App', ['pr.longpress']);
 
 App.config(function($sceProvider) {
    $sceProvider.enabled(false);
@@ -19,4 +19,4 @@ if(!window.CONFIG) {
    alert(error);
 }
 
-var Api = new HApi(CONFIG.wsUrl, CONFIG.authToken);
+window.Api = new HApi(CONFIG.wsUrl, CONFIG.authToken);

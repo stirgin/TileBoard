@@ -1,4 +1,4 @@
-var Noty = (function () {
+window.Noty = (function () {
    var updatesListeners = [];
    var updatesFired = false;
 

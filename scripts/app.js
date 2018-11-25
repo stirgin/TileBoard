@@ -1,19 +1,19 @@
-var CLASS_BIG = "-big-entity";
-var CLASS_SMALL = "-small-entity";
-var CLASS_MICRO = "-micro-entity";
+window.CLASS_BIG = "-big-entity";
+window.CLASS_SMALL = "-small-entity";
+window.CLASS_MICRO = "-micro-entity";
 
-var GOOGLE_MAP = "google";
-var YANDEX_MAP = "yandex";
+window.GOOGLE_MAP = "google";
+window.YANDEX_MAP = "yandex";
 
-var TRANSITIONS = {
+window.TRANSITIONS = {
    ANIMATED: 'animated',
    ANIMATED_GPU: 'animated_gpu',
    SIMPLE: 'simple' // fastest
 };
 
-var ITEM_TRANSPARENT = "transparent";
+window.ITEM_TRANSPARENT = "transparent";
 
-var CUSTOM_THEMES = {
+window.CUSTOM_THEMES = {
    TRANSPARENT: "transparent",
    MATERIAL: "material",
    WIN95: "win95",
@@ -23,9 +23,9 @@ var CUSTOM_THEMES = {
    HOMEKIT: "homekit",
 };
 
-var PASSWORD_TYPES = {};
+window.PASSWORD_TYPES = {};
 
-var TYPES = {
+window.TYPES = {
    DEVICE_TRACKER: 'device_tracker',
    SCRIPT: 'script',
    AUTOMATION: 'automation',
@@ -57,7 +57,7 @@ var TYPES = {
    VACUUM: 'vacuum'
 };
 
-var HEADER_ITEMS = {
+window.HEADER_ITEMS = {
    TIME: 'time',
    DATE: 'date',
    DATETIME: 'datetime',
@@ -65,9 +65,9 @@ var HEADER_ITEMS = {
    CUSTOM_HTML: 'custom_html'
 };
 
-var SCREENSAVER_ITEMS = HEADER_ITEMS;
+window.SCREENSAVER_ITEMS = HEADER_ITEMS;
 
-var FEATURES = {
+window.FEATURES = {
    MEDIA_PLAYER: {
       PAUSE: 1,
       SEEK: 2,
@@ -99,30 +99,30 @@ var FEATURES = {
    }
 };
 
-var MENU_POSITIONS = {
+window.MENU_POSITIONS = {
    LEFT: 'left',
    BOTTOM: 'bottom'
 };
 
-var GROUP_ALIGNS = {
+window.GROUP_ALIGNS = {
    VERTICALLY: 'vertically',
    HORIZONTALLY: 'horizontally'
 };
 
-var NOTIES_POSITIONS = {
+window.NOTIES_POSITIONS = {
    LEFT: 'left',
    RIGHT: 'right'
 };
 
-var ENTITY_SIZES = {
+window.ENTITY_SIZES = {
    SMALL: 'small',
    NORMAL: 'normal',
    BIG: 'big'
 };
 
-var TOKEN_CACHE_KEY = "_tkn1";
+window.TOKEN_CACHE_KEY = "_tkn1";
 
-var DEFAULT_HEADER = {
+window.DEFAULT_HEADER = {
    styles: {
       padding: '30px 130px 0',
       fontSize: '28px'
@@ -188,27 +188,27 @@ window.onerror = function (error, file, line, char) {
 };
 
 
-function mergeObjects (a, b) {
+window.mergeObjects = function (a, b) {
    return angular.merge(a, b);
-}
+};
 
-function leadZero (num) {
+window.leadZero = function (num) {
    if(num >= 0 && num < 10) {
       return "0" + num;
    }
 
    return num;
-}
+};
 
-function numberFilter (precision) {
+window.numberFilter = function(precision) {
    return function (value) {
       var num = parseFloat(value);
 
       return num && !isNaN(num) ? num.toFixed(precision) : value;
    }
-}
+};
 
-function switchPercents (field, max, round) {
+window.switchPercents = function(field, max, round) {
    round = round || false;
    max = max || 100;
 
@@ -233,15 +233,15 @@ function switchPercents (field, max, round) {
 
       return value + '%';
    }
-}
+};
 
-function playSound(sound) {
+window.playSound = function(sound) {
    var audio = new Audio(sound);
    audio.loop = false;
    audio.play();
-}
+};
 
-function timeAgo (time) {
+window.timeAgo = function(time) {
    time = +new Date(time);
 
    var timeFormats = [
@@ -289,9 +289,9 @@ function timeAgo (time) {
    }
 
    return time;
-}
+};
 
-function debounce(func, wait, immediate) {
+window.debounce = function(func, wait, immediate) {
    var timeout;
    return function() {
       var context = this, args = arguments;
@@ -304,4 +304,4 @@ function debounce(func, wait, immediate) {
       timeout = setTimeout(later, wait);
       if (callNow) func.apply(context, args);
    };
-}
+};

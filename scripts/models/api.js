@@ -2,7 +2,7 @@
  * @class HApi $Api
  */
 
-var HApi = (function () {
+window.HApi = (function () {
    var STATUS_LOADING = 1;
    var STATUS_OPENED = 2;
    var STATUS_READY = 3;

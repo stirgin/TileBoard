@@ -13,32 +13,12 @@
    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="favicon.png">
+   <link rel="stylesheet" async href="./styles/plugins/materialdesignicons.min.css">
+   <link rel="stylesheet" async href="./styles/styles.css"/>
 
-   <link rel="stylesheet" href="styles/main.css"/>
-   <link rel="stylesheet" href="styles/themes.css"/>
-   <link rel="stylesheet" href="styles/weather-icons.css"/>
-   <link rel="stylesheet" href="styles/custom.css"/>
-
-   <style>
-      [ng-cloak] { display: none; }
-   </style>
-
-   <script src="scripts/vendors/angular.min.js"></script>
-   <script src="scripts/vendors/angular-long-press.js"></script>
-
-   <script src="scripts/models/api.js"></script>
-   <script src="scripts/models/noty.js"></script>
-
-   <script src="scripts/app.js"></script>
-
-   <!--<script src="config.example.js"></script>-->
-   <script src="config.js"></script>
-
-   <script src="scripts/init.js"></script>
-   <script src="scripts/directives.js"></script>
-   <script src="scripts/controllers/main.js"></script>
-   <script src="scripts/controllers/noty.js"></script>
-   <script src="scripts/controllers/screensaver.js"></script>
+   <script defer src="./boot.min.js"></script>
+   <script defer src="./config.js"></script>
+   <script defer src="./bootpatch.min.js"></script>
 </head>
 
 <body ng-controller="Main" ng-class="getBodyClass()">
@@ -1066,11 +1046,5 @@
       </div>
    </div>
 </script>
-
-
-
-<link rel="stylesheet" async
-      href="https://cdn.materialdesignicons.com/2.7.94/css/materialdesignicons.min.css">
-
 </body>
 </html>
