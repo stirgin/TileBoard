@@ -23,7 +23,7 @@ a.router-link {
     color: #fff;
     font-size: 32px;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 49;
     a {
         color: white;
         &:active,
@@ -35,3 +35,34 @@ a.router-link {
     }
 }
 
+
+.flex-pages {
+    height: 100%;
+    width: 100%;
+
+    .page {
+        padding: 20px;
+        .d-flex100();
+
+        .page-align {
+            .d-flex();
+        }
+
+        .page-groups {
+            .d-flex100();
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .groups-items {
+                .d-flex();
+                width: 33%;
+                position: relative;
+                margin-bottom: 4px;
+            }
+        }
+
+        .flex-item {
+            .d-flex100();
+        }
+    }
+}

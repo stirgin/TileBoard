@@ -6,14 +6,33 @@
     <ng-include src="'./templates/tileboards/shared/datetime-popup.html'"></ng-include>
     <ng-include src="'./templates/tileboards/shared/pages-menu.html'"></ng-include>
     <ng-include src="'./templates/tileboards/shared/header.html'"></ng-include>
-    <ng-include src="'./templates/tileboards/shared/pages.html'"></ng-include>
+
+    <div class="pages flex-pages" id="pages">
+        <div class="page-overlay" ng-if="activeSelect"
+             ng-click="closeActiveSelect()"></div>
+
+        <div ng-repeat="page in pages track by $index"
+             ng-class="{'-active': isPageActive(page)}"
+             ng-if="shouldDrawPage(page) && !isHidden(page)"
+             ng-style="pageStyles(page)" class="page"
+             on-scroll on-scroll-model="page">
+
+            <!-- legacy -->
+            <div class="page-head" ng-if="page.head && headWarning()"
+                 ng-include="page.head"></div>
+
+            <div class="header" ng-if="header = getHeader(page)"
+                 ng-include="'header.html'"></div>
+
+            <div class="page-align"></div>
+
+            <div class="page-groups" ng-repeat="group in page.groups track by $index">
+                <div tile class="groups-items" ng-repeat="item in group.items track by $index"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <ng-include src="'./templates/tileboards/shared/screensaver.html'"></ng-include>
 <ng-include src="'./templates/tileboards/shared/noties.html'"></ng-include>
-
-<div id="back-to-main-title">
-    <a ng-href="#!{{router.MAIN}}">
-        <i class="mdi mdi-arrow-left-bold-circle-outline"></i>
-    </a>
-</div>
+<ng-include src="'./templates/tileboards/shared/gotocommonpage.html'"></ng-include>

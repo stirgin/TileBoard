@@ -11,3 +11,4 @@ styles/custom.css
 images/bg4.png
 *.db
 /dist
+creds.json

@@ -306,3 +306,54 @@ window.debounce = function(func, wait, immediate) {
       if (callNow) func.apply(context, args);
    };
 };
+
+window.ROUTER = {
+    COMMON: {
+        HREF: '#!common',
+        ROUTE: '/common'
+    },
+    CAMERAS: {
+        HREF:  '#!cameras?config=cameras',
+        ROUTE: '/cameras'
+    },
+    DEFAULT: {
+        HREF: '#!main?config=main',
+        ROUTE: '/default'
+    }
+};
+
+/*
+window.ROUTER = {
+    COMMON: {
+        HREF: 'common',
+        ROUTE: '/common'
+    },
+    CAMERAS: {
+        ROUTE: '/cameras'
+    },
+    DEFAULT: {
+        ROUTE: '/default'
+    },
+};
+*/
+
+/*
+window.ROUTER = {
+    COMMON: {
+        HREF: '?config=#/!',
+        ROUTE: '/',
+        KEY: 'COMMON'
+    },
+    MAIN: {
+        HREF: '?config=main#!main',
+        ROUTE: '/main',
+        KEY: 'MAIN'
+    },
+    CAMERAS: {
+        HREF:  '?config=cameras#!cameras',
+        ROUTE: '/cameras',
+        KEY: 'CAMERAS'
+    }
+};
+
+ */

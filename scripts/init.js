@@ -1,47 +1,31 @@
 window.App = angular.module('App', ['pr.longpress', 'ngRoute']);
-window.domainPath = `${DOMAIN_PATH}/`;
-
-window.ROUTER = {
-    MAIN: '/',
-    CAMERAS: '/cameras'
-};
 
 App.config(function($sceProvider) {
    $sceProvider.enabled(false);
 });
 
 App.config(function($locationProvider) {
-   $locationProvider.html5Mode({
-      requireBase: false
-   });
+    $locationProvider.html5Mode({
+        enabled: false,
+        requireBase: false
+    });
 });
 
 App.config(['$routeProvider', function($routeProvider) {
-
     $routeProvider
-        .when(ROUTER.MAIN, {
-            template: require('../templates/tileboards/main/index.html'),
-            controller: 'TileBoardMainController',
-            resolve: {
-                initialData: function() {
-                    return {
-                        configName: 'MAIN'
-                    };
-                }
-            }
+        .when(ROUTER.COMMON.ROUTE, {
+            template: require('../templates/tileboards/common/index.html'),
+            controller: 'TileBoardMainController'
         })
-        .when(ROUTER.CAMERAS, {
+        .when(ROUTER.CAMERAS.ROUTE, {
             template: require('../templates/tileboards/cameras/index.html'),
-            controller: 'TileBoardMainController',
-            resolve: {
-                initialData: function() {
-                    return {
-                        configName: 'CAMERAS'
-                    };
-                }
-            }
+            controller: 'TileBoardMainController'
+        })
+        .when(ROUTER.DEFAULT.ROUTE, {
+            template: require('../templates/tileboards/default/index.html'),
+            controller: 'TileBoardMainController'
         }).otherwise({
-            redirectTo: ROUTER.CAMERAS
+            redirectTo: ROUTER.COMMON.ROUTE
         });
 }]);
 

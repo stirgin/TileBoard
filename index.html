@@ -16,15 +16,12 @@
    <link rel="stylesheet" async href="./styles/plugins/materialdesignicons.min.css">
    <link rel="stylesheet" async href="./styles/styles.css"/>
 
-   <script>
-       var DOMAIN_PATH = '/local/tileboard/dist';
-   </script>
    <script defer src="./boot.min.js"></script>
 
-   <script defer src="./configs/config.js"></script>
-   <script defer src="./configs/cameras.js"></script>
+   <script defer src="./configs/common.js"></script>
 
    <script defer src="./bootpatch.min.js"></script>
+
 </head>
 
 <body ng-controller="MainController" ng-class="getBodyClass()">
@@ -252,7 +249,7 @@
       <div ng-if="item.type === TYPES.ROUTER"
            class="item-entity-container">
 
-         <a class="router-link" ng-href="#!ROUTER[item.routerType]">
+         <a class="router-link" ng-href="{{item.routerURL}}">
             <div class="item-entity">
                   <span class="item-entity--icon mdi"
                         ng-class="entityIcon(item, entity)"></span>

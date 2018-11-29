@@ -30,7 +30,6 @@ module.exports = {
             './scripts/controllers/main.js',
             './scripts/controllers/noty.js',
             './scripts/controllers/screensaver.js',
-            './scripts/controllers/cameras.js',
         ],
         styles: [
             './styles/bundle.less',
@@ -96,6 +95,10 @@ module.exports = {
             }, {
                 from: 'configs',
                 to: 'configs',
+                toType: 'dir'
+            }, {
+                from: 'scripts/custom_scripts',
+                to: 'scripts/custom_scripts',
                 toType: 'dir'
             }, {
                 from: 'images',
